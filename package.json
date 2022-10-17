@@ -16,6 +16,7 @@
         "sequelize": "^6.25.0"
     },
     "devDependencies": {
+        "@faker-js/faker": "^7.6.0",
         "nodemon": "^2.0.20"
     }
 }

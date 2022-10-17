@@ -1,30 +1,24 @@
 'use strict';
+const { faker } = require('@faker-js/faker');
+
+const dataArr = [];
+
+const dataObj = (data) => {
+  let dataArr = {};
+  dataArr.title =  faker.commerce.product();
+  dataArr.description =  faker.lorem.paragraph();
+  dataArr.createdAt = new Date();
+  dataArr.updatedAt = new Date();
+  return dataArr;
+}
+
+for(let i=0; i < 5; i++){
+  dataArr.push(dataObj(i+1))
+}
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-
-    
-    
-    return queryInterface.bulkInsert('notes', [
-    {
-      title : "seeder data title 01",
-      description: "seeder data description 01",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      title : "seeder data title 02",
-      description: "seeder data description 02",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-    {
-      title : "seeder data title 03",
-      description: "seeder data description 03",
-      createdAt: new Date(),
-      updatedAt: new Date()
-    },
-  ]);
+    return queryInterface.bulkInsert('notes', dataArr);
   },
   
   down: (queryInterface, Sequelize) => {
