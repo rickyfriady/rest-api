@@ -5,10 +5,10 @@ function factoryNote(rowCount){
   const dataArr = [];
   for(let i = 0; i < rowCount; i++) {
     const objItems = {
-      title :  faker.commerce.product();
-      description :  faker.lorem.paragraph();
-      createdAt : new Date();
-      updatedAt : new Date();
+      title :  faker.commerce.product(),
+      description :  faker.lorem.paragraph(),
+      createdAt : new Date(),
+      updatedAt : new Date(),
     };
     dataArr.push(objItems);
   }
