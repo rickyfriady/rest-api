@@ -5,6 +5,7 @@ import cors from 'cors';
 import express from 'express';
 import http from 'http';
 import mongoose from 'mongoose';
+import router from './router';
 
 const app = express();
 const PORT = 8800;
@@ -29,3 +30,5 @@ server.listen(PORT, () => {
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on('error', (error: Error) => console.log(error));
+
+app.use('/', router());
